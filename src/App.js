@@ -19,7 +19,7 @@ const App = (props) => {
   return (
     <div className="container">
       <div className="filters">
-        <Select />
+        <Select types={types} />
       </div>
       <div className="filters">
         <Filter />

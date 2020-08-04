@@ -1,13 +1,18 @@
 import React from "react";
 
-const Select = () => {
+const Select = (props) => {
+  const { types } = props;
+  console.log(types);
   return (
     <div>
       <select>
-        {/* Usar el estado types y realizar un map para colocar el valor en cada etiqueta option */}
-        <option>Normal</option>
-        <option>Fire</option>
-        <option>Flying</option>
+        {types.map((type, id) => {
+          return (
+            <option  name={type} id={id}>
+              {type}
+            </option>
+          );
+        })}
       </select>
     </div>
   );
