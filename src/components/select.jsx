@@ -1,19 +1,22 @@
 import React from "react";
+import MenuItem from "@material-ui/core/MenuItem";
+import NativeSelect from '@material-ui/core/NativeSelect';
+
 
 const Select = (props) => {
   const { types } = props;
   console.log(types);
   return (
     <div>
-      <select>
-        {types.map((type, id) => {
-          return (
-            <option  name={type} id={id}>
-              {type}
-            </option>
-          );
-        })}
-      </select>
+      <NativeSelect>
+      {types.map((type, id) => {
+       return ( 
+      <option  name={type} id={id}> 
+      {type}
+      </option>
+      ); 
+      })} 
+      </NativeSelect>
     </div>
   );
 };
