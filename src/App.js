@@ -5,7 +5,7 @@ import pokemonList from "./pokemonList";
 import Filter from "./components/filter";
 import Select from "./components/select";
 import Grid from "@material-ui/core/Grid";
-const App = (props) => {
+const App = () => {
   const [types, setTypes] = useState([
     "Grass",
     "Poison",
@@ -29,7 +29,7 @@ const App = (props) => {
         <Grid container spacing={5}>
           {pokemon.map((pokemon, index) => {
             return (
-              <Grid item key={index} md={3} sm={6} xs={12}>
+              <Grid item key={index} lg={3} md={4} sm={6} xs={12}>
                 <PokeCard pokemon={pokemon} />
               </Grid>
             );
