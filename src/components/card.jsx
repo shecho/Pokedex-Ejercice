@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     flexDirection: "column",
     width: "100%",
-    minHeight: 300,
+    minHeight: 250,
   },
   title: {
     fontSize: 14,
@@ -21,6 +21,8 @@ const useStyles = makeStyles({
   },
   content: {
     display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
     justifyContent: "center",
   },
 });
@@ -30,17 +32,28 @@ const PokeCard = (props) => {
   return (
     <div className="card">
       <Card className={classes.root}>
-        <CardContent>
-          <Typography variant="body2" component="p">
+        <CardContent className={classes.content}>
+          <Typography variant="h4" component="h2">
             {name.english}
           </Typography>
-
-          <Typography className={classes.title} color="textSecondary">
-            {type}
+          <Typography variant="h5" color="textSecondary">
+            <span>{type[0]} </span>
+            <span>{type[1]}</span>
           </Typography>
-          <Typography variant="h5" component="h2"></Typography>
+          <img src={sprite} alt="pokemon" />
           <Typography className={classes.pos} color="textSecondary">
-            Poquemon type
+            <strong> Base HP: </strong>
+            {base.HP}
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            <strong> Attack: </strong> {base.Attack}
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            <strong> Defense: </strong> {base.Defense}
+          </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            <strong> Speed </strong>
+            {base.Speed}
           </Typography>
         </CardContent>
       </Card>
