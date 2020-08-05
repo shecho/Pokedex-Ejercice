@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,28 +6,30 @@
 }
 
 .App {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 40px;
-  row-gap: 20px;
-  padding: 0% 5%;
-  width: 85%;
+  padding: 3rem;
+  margin: 4rem;
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  /* column-gap: 40px; */
+  /* row-gap: 20px; */
+  /* padding: 0% 5%; */
+  /* width: 85%; */
 }
 
-.types{
+.types {
   display: inline-block;
   background-color: chocolate;
   padding: 5px 10px;
   margin-right: 10px;
-  color: #FFF;
+  color: #fff;
   border-radius: 4px;
 }
 
-.filters{
+.filters {
   margin-bottom: 1em;
 }
 
-.card{
+.card {
   display: flex;
   flex-direction: column;
   background-color: #7eb2f9;

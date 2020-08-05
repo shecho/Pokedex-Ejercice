@@ -1,5 +1,4 @@
 import React from "react";
-import MenuItem from "@material-ui/core/MenuItem";
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 
@@ -11,7 +10,7 @@ const Select = (props) => {
       <NativeSelect>
       {types.map((type, id) => {
        return ( 
-      <option  name={type} id={id}> 
+      <option  name={type} key={id}> 
       {type}
       </option>
       ); 

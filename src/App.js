@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Card from "./components/card";
+import PokeCard from "./components/card";
 import "./App.css";
 import pokemonList from "./pokemonList";
 import Filter from "./components/filter";
 import Select from "./components/select";
+import Grid from "@material-ui/core/Grid";
 const App = (props) => {
   const [types, setTypes] = useState([
     "Grass",
@@ -24,7 +25,17 @@ const App = (props) => {
       <div className="filters">
         <Filter />
       </div>
-      <div className="App"></div>
+      <div className="App">
+        <Grid container spacing={5}>
+          {pokemon.map((pokemon, index) => {
+            return (
+              <Grid item key={index} md={3} sm={6} xs={12}>
+                <PokeCard pokemon={pokemon} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      </div>
     </div>
   );
 };
