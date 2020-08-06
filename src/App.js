@@ -20,15 +20,25 @@ const App = () => {
   const [pokemon, setPokemon] = useState(pokemonList);
   const [searchPokemon, setSearchPokemon] = useState("");
   const handleTypeSelect = (event) => {
+    console.log(setTypes, setPokemon);
     setTypeSelected(event.target.value);
   };
   const handleFilter = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setSearchPokemon(event.target.value);
   };
   const filteredList = () => {
-    let newList = [...pokemon];
-    console.log(newList);
+    pokemon
+      .filter((poke) => poke.name.english.toLowerCase().includes(searchPokemon))
+      .map((p) => {
+        return (
+          <div className="row">
+            <span>{p.name}</span>
+            <span>{p.username}</span>
+            <span>{p.email}</span>
+          </div>
+        );
+      });
   };
   return (
     <div className="container">
@@ -40,6 +50,7 @@ const App = () => {
       </div>
       <div className="App">
         <Grid container spacing={4}>
+          <div className="bg-dark">{filteredList()}</div>
           {pokemon
             .filter((pokemon) => {
               return typeSelected === "Todos"
