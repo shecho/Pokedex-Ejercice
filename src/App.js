@@ -24,21 +24,17 @@ const App = () => {
     setTypeSelected(event.target.value);
   };
   const handleFilter = (event) => {
-    // console.log(event.target.value);
+    event.preventDefault();
     setSearchPokemon(event.target.value);
   };
   const filteredList = () => {
-    pokemon
+    let filterlist = pokemonList;
+    filterlist
       .filter((poke) => poke.name.english.toLowerCase().includes(searchPokemon))
       .map((p) => {
-        return (
-          <div className="row">
-            <span>{p.name}</span>
-            <span>{p.username}</span>
-            <span>{p.email}</span>
-          </div>
-        );
+        console.log(p.name.english);
       });
+    setPokemon(filterlist);
   };
   return (
     <div className="container">
@@ -46,11 +42,10 @@ const App = () => {
         <Select types={types} handleTypeSelect={handleTypeSelect} />
       </div>
       <div className="filters">
-        <Filter handleFilter={handleFilter} />
+        <Filter handleFilter={handleFilter} filteredList={filteredList} />
       </div>
       <div className="App">
         <Grid container spacing={4}>
-          <div className="bg-dark">{filteredList()}</div>
           {pokemon
             .filter((pokemon) => {
               return typeSelected === "Todos"
