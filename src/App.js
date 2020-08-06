@@ -33,8 +33,8 @@ const App = () => {
       .filter((poke) => poke.name.english.toLowerCase().includes(searchPokemon))
       .map((p) => {
         console.log(p.name.english);
+        return <li>rendring</li>;
       });
-    setPokemon(filterlist);
   };
   return (
     <div className="container">
