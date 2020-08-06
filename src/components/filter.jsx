@@ -9,17 +9,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
- const filterPokemon = (e) => {
-    console.log(e.target.value);
- }
-const Filter = () => {
+const Filter = (props) => {
+
+  const {handleFilter} = props
   const classes = useStyles();
 
   return (
     <div>
       <form className={classes.root} noValidate autoComplete="off">
         <Input
-          onChange={filterPokemon}
+          onChange={handleFilter}
           placeholder="Search a pokemon"
           inputProps={{ "aria-label": "description" }}
         />

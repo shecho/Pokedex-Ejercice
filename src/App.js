@@ -17,29 +17,42 @@ const App = () => {
   ]);
 
   const [typeSelected, setTypeSelected] = useState("Todos");
-
+  const [pokemon, setPokemon] = useState(pokemonList);
+  const [searchPokemon, setSearchPokemon] = useState("");
   const handleTypeSelect = (event) => {
     setTypeSelected(event.target.value);
   };
-
-  const [pokemon, setPokemon] = useState(pokemonList);
+  const handleFilter = (event) => {
+    console.log(event.target.value);
+    setSearchPokemon(event.target.value);
+  };
+  const filteredList = () => {
+    let newList = [...pokemon];
+    console.log(newList);
+  };
   return (
     <div className="container">
       <div className="filters">
-        <Select types={types} typeSelected={typeSelected} />
+        <Select types={types} handleTypeSelect={handleTypeSelect} />
       </div>
       <div className="filters">
-        <Filter />
+        <Filter handleFilter={handleFilter} />
       </div>
       <div className="App">
-        <Grid container spacing={5}>
-          {pokemon.map((pokemon, index) => {
-            return (
-              <Grid item key={index} lg={3} md={4} sm={6} xs={12}>
-                <PokeCard pokemon={pokemon} />
-              </Grid>
-            );
-          })}
+        <Grid container spacing={4}>
+          {pokemon
+            .filter((pokemon) => {
+              return typeSelected === "Todos"
+                ? true
+                : pokemon.type.includes(typeSelected);
+            })
+            .map((pokemon, index) => {
+              return (
+                <Grid item key={index} lg={3} md={6} sm={6} xs={12}>
+                  <PokeCard pokemon={pokemon} />
+                </Grid>
+              );
+            })}
         </Grid>
       </div>
     </div>

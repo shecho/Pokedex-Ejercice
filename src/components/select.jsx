@@ -3,7 +3,7 @@ import NativeSelect from "@material-ui/core/NativeSelect";
 
 const Select = (props) => {
   const { types, handleTypeSelect } = props;
-  console.log(types);
+  // console.log(types);
   return (
     <div>
       <NativeSelect onChange={handleTypeSelect}>
