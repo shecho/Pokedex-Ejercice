@@ -16,11 +16,17 @@ const App = () => {
     "Normal",
   ]);
 
+  const [typeSelected, setTypeSelected] = useState("Todos");
+
+  const handleTypeSelect = (event) => {
+    setTypeSelected(event.target.value);
+  };
+
   const [pokemon, setPokemon] = useState(pokemonList);
   return (
     <div className="container">
       <div className="filters">
-        <Select types={types} />
+        <Select types={types} typeSelected={typeSelected} />
       </div>
       <div className="filters">
         <Filter />

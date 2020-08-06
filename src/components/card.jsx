@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    borderRadius:5,
+    borderRadius: 5,
     alignItems: "center",
     display: "flex",
     justifyContent: "center",
@@ -29,32 +29,32 @@ const useStyles = makeStyles({
 });
 
 const dinamicBackground = (type) => {
-  let styles = {}
+  let styles = {};
   switch (type[0]) {
     case "Grass":
-       styles ={ backgroundColor: "#00b894" };
+      styles = { backgroundColor: "#00b894" };
       break;
     case "Fire":
-       styles = { backgroundColor: "#d63031" };
+      styles = { backgroundColor: "#d63031" };
       break;
     case "Poison":
-       styles=  { backgroundColor: "#6c5ce7" };
+      styles = { backgroundColor: "#6c5ce7" };
       break;
     case "Water":
-     styles =  { backgroundColor: "#0984e3" };
-     break;
+      styles = { backgroundColor: "#0984e3" };
+      break;
     case "Flying":
-     styles ={ backgroundColor: "#b2bec3" };
+      styles = { backgroundColor: "#b2bec3" };
       break;
     case "Bug":
-     styles ={ backgroundColor: "#fdcb6e" };
+      styles = { backgroundColor: "#fdcb6e" };
       break;
     case "Normal":
-     styles ={ backgroundColor: "#fd79a8" };
+      styles = { backgroundColor: "#fd79a8" };
       break;
     default:
-      styles ={backgroundColor : "#dfe6e9"}
-      break
+      styles = { backgroundColor: "#dfe6e9" };
+      break;
   }
 
   return styles;
@@ -63,7 +63,7 @@ const PokeCard = (props) => {
   const { name, type, sprite, base } = props.pokemon;
   const classes = useStyles();
   const backgroundStyles = dinamicBackground(type);
-  return (
+   return (
     <div className="card">
       <Card className={classes.root} style={backgroundStyles}>
         <CardContent className={classes.content}>
@@ -74,7 +74,9 @@ const PokeCard = (props) => {
             <span>{type[0]} </span>
             <span>{type[1]}</span>
           </Typography>
-          <img src={sprite} alt="pokemon" />
+          <div className="container-fluid">
+            <img src={sprite} className="img-fluid "  alt="pokemon" />
+          </div>
           <Typography className={classes.pos} color="textSecondary">
             <strong> Base HP: </strong>
             {base.HP}
