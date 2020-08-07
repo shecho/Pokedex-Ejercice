@@ -8,11 +8,12 @@ const useStyles = makeStyles({
   root: {
     borderRadius: 5,
     alignItems: "center",
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-    width: "100%",
-    minHeight: 250,
+    // display: "flex",
+    // justifyContent: "center",
+    // flexDirection: "column",
+    // width: "100%",
+    // minHeight: 250,
+    // minWight: 250,
   },
   title: {
     fontSize: 14,
@@ -64,7 +65,7 @@ const PokeCard = (props) => {
   const classes = useStyles();
   const backgroundStyles = dinamicBackground(type);
    return (
-    <div className="card">
+    <div className="">
       <Card className={classes.root} style={backgroundStyles}>
         <CardContent className={classes.content}>
           <Typography variant="h4" component="h2">

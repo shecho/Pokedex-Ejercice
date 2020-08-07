@@ -37,12 +37,14 @@ const App = () => {
       });
   };
   return (
-    <div className="container">
-      <div className="filters">
-        <Select types={types} handleTypeSelect={handleTypeSelect} />
-      </div>
-      <div className="filters">
-        <Filter handleFilter={handleFilter} filteredList={filteredList} />
+    <div className="">
+      <div className="container">
+        <div className="filters">
+          <Select types={types} handleTypeSelect={handleTypeSelect} />
+        </div>
+        <div className="filters">
+          <Filter handleFilter={handleFilter} filteredList={filteredList} />
+        </div>
       </div>
       <div className="App">
         <Grid container spacing={4}>
@@ -57,7 +59,7 @@ const App = () => {
             })
             .map((pokemon, index) => {
               return (
-                <Grid item key={index} lg={3} md={6} sm={6} xs={12}>
+                <Grid item key={index} xs={12} sm={10} md={6} lg={3}>
                   <PokeCard pokemon={pokemon} />
                 </Grid>
               );
