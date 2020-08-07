@@ -47,6 +47,9 @@ const App = () => {
       <div className="App">
         <Grid container spacing={4}>
           {pokemon
+            .filter((poke) =>
+              poke.name.english.toLowerCase().includes(searchPokemon)
+            )
             .filter((pokemon) => {
               return typeSelected === "Todos"
                 ? true
