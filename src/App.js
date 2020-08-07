@@ -47,7 +47,7 @@ const App = () => {
         </div>
       </div>
       <div className="App">
-        <Grid container spacing={4}>
+        <Grid container spacing={4} justify={"center"}>
           {pokemon
             .filter((poke) =>
               poke.name.english.toLowerCase().includes(searchPokemon)
